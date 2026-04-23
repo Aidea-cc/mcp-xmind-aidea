@@ -138,6 +138,29 @@ npm run build      # 编译 TypeScript
 npm test           # 运行测试
 ```
 
+### 后续升级
+
+当原项目 [mcp-xmind](https://github.com/apeyroux/mcp-xmind) 升级到 v2.2.0 或更高版本时，可以按照以下步骤同步升级：
+
+```bash
+# 1. 添加原项目作为上游仓库
+cd /path/to/mcp-xmind-aidea
+git remote add upstream https://github.com/apeyroux/mcp-xmind.git
+
+# 2. 拉取原项目的最新更新
+git fetch upstream
+
+# 3. 合并原项目的更新到本地分支
+git merge upstream/main
+
+# 4. 解决可能的冲突（如果有）
+# 5. 运行测试确保兼容性
+npm test
+
+# 6. 推送更新到我们的仓库
+git push origin main
+```
+
 ### 许可证
 
 MIT
@@ -276,6 +299,29 @@ claude mcp add xmind -- npx -y mcp-xmind-aidea /path/to/your/xmind/files
 npm install        # Install dependencies
 npm run build      # Compile TypeScript
 npm test           # Run tests
+```
+
+### Future Upgrades
+
+When the original [mcp-xmind](https://github.com/apeyroux/mcp-xmind) project is upgraded to v2.2.0 or higher, you can sync the updates by following these steps:
+
+```bash
+# 1. Add the original project as upstream
+cd /path/to/mcp-xmind-aidea
+git remote add upstream https://github.com/apeyroux/mcp-xmind.git
+
+# 2. Fetch the latest updates from the original project
+git fetch upstream
+
+# 3. Merge the updates into your local branch
+git merge upstream/main
+
+# 4. Resolve any conflicts (if any)
+# 5. Run tests to ensure compatibility
+npm test
+
+# 6. Push updates to our repository
+git push origin main
 ```
 
 ### License
