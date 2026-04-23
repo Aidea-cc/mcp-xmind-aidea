@@ -8,7 +8,7 @@
 
 ## 中文
 
-一个基于模型上下文协议（MCP）的 XMind 思维导图服务器，支持读取、创建和查询 XMind 文件。基于 [mcp-xmind](https://github.com/apeyroux/mcp-xmind) 改造，新增 **Rainbow 主题** 和 **完整的 XMind 格式兼容**。
+一个基于模型上下文协议（MCP）的 XMind 思维导图服务器，支持读取、创建和查询 XMind 文件。基于 [mcp-xmind](https://github.com/apeyroux/mcp-xmind) v2.1.0 版本改造，新增 **Rainbow 主题** 和 **完整的 XMind 格式兼容**。后续可根据原仓库进行版本升级，保持兼容性。
 
 ### 功能特性
 
@@ -148,7 +148,7 @@ MIT
 
 ## English
 
-A Model Context Protocol (MCP) server for reading, creating and querying XMind mind maps. Based on [mcp-xmind](https://github.com/apeyroux/mcp-xmind) by Alexandre Peyroux, customized with **Rainbow theme** and **full XMind format compatibility**.
+A Model Context Protocol (MCP) server for reading, creating and querying XMind mind maps. Based on [mcp-xmind](https://github.com/apeyroux/mcp-xmind) v2.1.0 by Alexandre Peyroux, customized with **Rainbow theme** and **full XMind format compatibility**. Future upgrades can be based on the original repository while maintaining compatibility.
 
 ### Features
 
