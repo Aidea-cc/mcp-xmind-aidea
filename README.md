@@ -1,146 +1,6 @@
 # mcp-xmind-aidea
 
-[English](#english) | [中文](#中文)
-
----
-
-<a id="english"></a>
-
-## English
-
-A Model Context Protocol (MCP) server for reading, creating and querying XMind mind maps. Based on [mcp-xmind](https://github.com/apeyroux/mcp-xmind) by Alexandre Peyroux, customized with **Rainbow theme** and **full XMind format compatibility**.
-
-### Features
-
-#### Reading
-- Parse complete mind map structure (multi-sheet)
-- Smart fuzzy search across mind maps
-- Task management and tracking (to-do + planned tasks)
-- Hierarchical content navigation
-- Link and reference extraction (external URLs + internal xmind:# links)
-- Multi-file analysis
-- Label, callout, boundary and summary support
-- Directory scanning
-
-#### Writing
-- Create XMind files from structured JSON
-- **Rainbow theme** (dark navy style, matching XMind desktop default)
-- **Node class types**: `topic`, `importantTopic` (bold dark red), `minorTopic` (bold brown)
-- **attributedTitle** on all nodes (full XMind format compatibility)
-- **content.xml** compatibility file (prevents warnings in XMind desktop)
-- Nested topics with notes (plain text + HTML formatting)
-- Labels, markers, callouts, boundaries, summaries
-- Relationships between topics (by title)
-- Internal links between topics across sheets (`linkToTopic`)
-- Simple to-do tasks (checkbox)
-- Planned tasks with Gantt support (dates, progress, priority, duration, dependencies)
-- Layout structures (clockwise, logic.right, org-chart, fishbone, timeline, etc.)
-- Overwrite protection
-
-### Installation
-
-```bash
-# Via npx (recommended)
-npx -y mcp-xmind-aidea /path/to/your/xmind/files
-
-# Or install globally
-npm install -g mcp-xmind-aidea
-mcp-server-xmind /path/to/your/xmind/files
-```
-
-### Configuration
-
-#### Claude Desktop
-
-Add to `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "XMind": {
-      "command": "npx",
-      "args": ["-y", "mcp-xmind-aidea", "/path/to/your/xmind/files"]
-    }
-  }
-}
-```
-
-#### Claude Code (CLI)
-
-```bash
-claude mcp add xmind -- npx -y mcp-xmind-aidea /path/to/your/xmind/files
-```
-
-#### Local Build
-
-```json
-{
-  "mcpServers": {
-    "XMind": {
-      "command": "node",
-      "args": ["/path/to/mcp-xmind-aidea/dist/index.js", "/path/to/your/xmind/files"]
-    }
-  }
-}
-```
-
-### Available Tools
-
-| Tool | Description |
-|------|-------------|
-| `read_xmind` | Parse and extract complete mind map structure |
-| `list_xmind_directory` | Recursively scan for XMind files |
-| `read_multiple_xmind_files` | Process multiple files simultaneously |
-| `search_xmind_files` | Search files by name or content |
-| `extract_node` | Smart fuzzy path matching with ranked results |
-| `extract_node_by_id` | Direct node access by ID |
-| `search_nodes` | Multi-criteria search (title, notes, labels, callouts, tasks) |
-| `create_xmind` | Create XMind files from structured data |
-
-### Example: Create a Mind Map
-
-```json
-{
-  "name": "create_xmind",
-  "arguments": {
-    "path": "/path/to/output.xmind",
-    "sheets": [{
-      "title": "Project Plan",
-      "theme": "rainbow",
-      "rootTopic": {
-        "title": "My Project",
-        "structureClass": "org.xmind.ui.logic.right",
-        "children": [
-          {
-            "title": "Important Feature",
-            "topicClass": "importantTopic",
-            "children": [
-              { "title": "Sub-task 1" },
-              { "title": "Sub-task 2" }
-            ]
-          },
-          {
-            "title": "Minor Note",
-            "topicClass": "minorTopic"
-          }
-        ]
-      }
-    }]
-  }
-}
-```
-
-### Development
-
-```bash
-npm install        # Install dependencies
-npm run build      # Compile TypeScript
-npm test           # Run tests
-```
-
-### License
-
-MIT
+[中文](#中文) | [English](#english)
 
 ---
 
@@ -279,5 +139,145 @@ npm test           # 运行测试
 ```
 
 ### 许可证
+
+MIT
+
+---
+
+<a id="english"></a>
+
+## English
+
+A Model Context Protocol (MCP) server for reading, creating and querying XMind mind maps. Based on [mcp-xmind](https://github.com/apeyroux/mcp-xmind) by Alexandre Peyroux, customized with **Rainbow theme** and **full XMind format compatibility**.
+
+### Features
+
+#### Reading
+- Parse complete mind map structure (multi-sheet)
+- Smart fuzzy search across mind maps
+- Task management and tracking (to-do + planned tasks)
+- Hierarchical content navigation
+- Link and reference extraction (external URLs + internal xmind:# links)
+- Multi-file analysis
+- Label, callout, boundary and summary support
+- Directory scanning
+
+#### Writing
+- Create XMind files from structured JSON
+- **Rainbow theme** (dark navy style, matching XMind desktop default)
+- **Node class types**: `topic`, `importantTopic` (bold dark red), `minorTopic` (bold brown)
+- **attributedTitle** on all nodes (full XMind format compatibility)
+- **content.xml** compatibility file (prevents warnings in XMind desktop)
+- Nested topics with notes (plain text + HTML formatting)
+- Labels, markers, callouts, boundaries, summaries
+- Relationships between topics (by title)
+- Internal links between topics across sheets (`linkToTopic`)
+- Simple to-do tasks (checkbox)
+- Planned tasks with Gantt support (dates, progress, priority, duration, dependencies)
+- Layout structures (clockwise, logic.right, org-chart, fishbone, timeline, etc.)
+- Overwrite protection
+
+### Installation
+
+```bash
+# Via npx (recommended)
+npx -y mcp-xmind-aidea /path/to/your/xmind/files
+
+# Or install globally
+npm install -g mcp-xmind-aidea
+mcp-server-xmind /path/to/your/xmind/files
+```
+
+### Configuration
+
+#### Claude Desktop
+
+Add to `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "XMind": {
+      "command": "npx",
+      "args": ["-y", "mcp-xmind-aidea", "/path/to/your/xmind/files"]
+    }
+  }
+}
+```
+
+#### Claude Code (CLI)
+
+```bash
+claude mcp add xmind -- npx -y mcp-xmind-aidea /path/to/your/xmind/files
+```
+
+#### Local Build
+
+```json
+{
+  "mcpServers": {
+    "XMind": {
+      "command": "node",
+      "args": ["/path/to/mcp-xmind-aidea/dist/index.js", "/path/to/your/xmind/files"]
+    }
+  }
+}
+```
+
+### Available Tools
+
+| Tool | Description |
+|------|-------------|
+| `read_xmind` | Parse and extract complete mind map structure |
+| `list_xmind_directory` | Recursively scan for XMind files |
+| `read_multiple_xmind_files` | Process multiple files simultaneously |
+| `search_xmind_files` | Search files by name or content |
+| `extract_node` | Smart fuzzy path matching with ranked results |
+| `extract_node_by_id` | Direct node access by ID |
+| `search_nodes` | Multi-criteria search (title, notes, labels, callouts, tasks) |
+| `create_xmind` | Create XMind files from structured data |
+
+### Example: Create a Mind Map
+
+```json
+{
+  "name": "create_xmind",
+  "arguments": {
+    "path": "/path/to/output.xmind",
+    "sheets": [{
+      "title": "Project Plan",
+      "theme": "rainbow",
+      "rootTopic": {
+        "title": "My Project",
+        "structureClass": "org.xmind.ui.logic.right",
+        "children": [
+          {
+            "title": "Important Feature",
+            "topicClass": "importantTopic",
+            "children": [
+              { "title": "Sub-task 1" },
+              { "title": "Sub-task 2" }
+            ]
+          },
+          {
+            "title": "Minor Note",
+            "topicClass": "minorTopic"
+          }
+        ]
+      }
+    }]
+  }
+}
+```
+
+### Development
+
+```bash
+npm install        # Install dependencies
+npm run build      # Compile TypeScript
+npm test           # Run tests
+```
+
+### License
 
 MIT
